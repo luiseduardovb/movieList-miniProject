@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 // Stores
 import movieStore from "../stores/movieStore";
 // Components
 import MovieItem from "./MovieItem";
+import SearchBar from "./SearchBar";
 
 const MovieList = () => {
-  const movieList = movieStore.movies.map((movie) => (
-    <MovieItem movie={movie} />
-  ));
-  return <div>{movieList}</div>;
+  const [query, setQuery] = useState("");
+
+  const movieList = movieStore.movies
+
+    .filter((movie) => movie.name.toLowerCase().includes(query.toLowerCase()))
+    .map((movie) => <MovieItem movie={movie} />);
+  return (
+    <div>
+      <SearchBar setQuery={setQuery} />
+      {movieList.length === 0 ? "not found" : movieList}
+    </div>
+  );
 };
 export default MovieList;
