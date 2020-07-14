@@ -8,7 +8,9 @@ import SearchBar from "./SearchBar";
 const MovieList = () => {
   const [query, setQuery] = useState("");
 
-  const movieList = movieStore.movies
+  const unwatched = movieStore.movies.filter((movie) => movie.watch === false);
+
+  const movieList = unwatched
 
     .filter((movie) => movie.name.toLowerCase().includes(query.toLowerCase()))
     .map((movie) => <MovieItem movie={movie} />);
