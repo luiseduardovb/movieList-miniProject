@@ -6,10 +6,11 @@ class MovieStore {
   movies = movies;
 
   watchedMovie = (updatedMovie) => {
-    const movie = this.movies.find(
-      (movie) => movie.watch === !updatedMovie.watch
-    );
-    console.log("hi");
+    const movie = this.movies.find((movie) => movie.id === updatedMovie.id);
+    movie.watch = !movie.watch;
+  };
+  deleteMovie = (movieId) => {
+    this.movies = this.movies.filter((movie) => movie.id !== movieId);
   };
 }
 decorate(MovieStore, {

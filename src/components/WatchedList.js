@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { observer } from "mobx-react";
 // Stores
 import movieStore from "../stores/movieStore";
 // Components
@@ -21,4 +22,4 @@ const WatchedList = () => {
     </div>
   );
 };
-export default WatchedList;
+export default observer(WatchedList);
