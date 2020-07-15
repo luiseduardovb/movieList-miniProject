@@ -7,7 +7,7 @@ const movies = [
   {
     id: 2,
     name: "Horrible Bosses",
-    watch: true,
+    watch: false,
   },
   {
     id: 3,

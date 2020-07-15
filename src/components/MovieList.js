@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { observer } from "mobx-react";
+
 // Stores
 import movieStore from "../stores/movieStore";
 // Components
@@ -21,4 +23,4 @@ const MovieList = () => {
     </div>
   );
 };
-export default MovieList;
+export default observer(MovieList);

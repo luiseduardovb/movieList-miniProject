@@ -4,6 +4,13 @@ import movies from "../movies";
 
 class MovieStore {
   movies = movies;
+
+  watchedMovie = (updatedMovie) => {
+    const movie = this.movies.find(
+      (movie) => movie.watch === !updatedMovie.watch
+    );
+    console.log("hi");
+  };
 }
 decorate(MovieStore, {
   movies: observable,
@@ -11,3 +18,10 @@ decorate(MovieStore, {
 
 const movieStore = new MovieStore();
 export default movieStore;
+
+// updateCoffee = (updatedCoffee) => {
+//   const coffee = this.coffees.find(
+//     (coffee) => coffee.id === updatedCoffee.id
+//   );
+//   for (const key in coffee) coffee[key] = updatedCoffee[key];
+// };
